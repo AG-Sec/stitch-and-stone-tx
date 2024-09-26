@@ -15,16 +15,22 @@
     </header>
 
     <section class="about">
-        <img src="images/hat-design.jpeg" alt="Custom Hat Design" class="hat-design">
+        <img src="images/hat-design.png" alt="Custom Hat Design" class="hat-design">
         <p>We design unique, custom hats that reflect your style...</p>
     </section>
 
     <section class="gallery">
         <h2>Gallery</h2>
-        <div id="gallery-images" class="gallery-images">
+        <div id="gallery-images" class="gallery-images scrollable-gallery">
             <!-- JavaScript will populate images here -->
         </div>
     </section>
+
+    <!-- Modal for enlarged image -->
+    <div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-image">
+    </div>
 
     <footer>
         <p>Powered by Heather & Ashlee McClung | Stitch and Stone TX</p>
@@ -70,9 +76,38 @@
             imgElement.alt = "Gallery image";
             imgElement.classList.add('gallery-image'); // Optional: for styling
 
+            // Set click listener to open modal
+            imgElement.onclick = function() {
+                openModal(this.src);
+            };
+
             // Append the image to the gallery container
             galleryContainer.appendChild(imgElement);
         });
+
+        // Modal functionality
+        const modal = document.getElementById('modal');
+        const modalImage = document.getElementById('modal-image');
+        const closeModal = document.getElementsByClassName('close')[0];
+
+        // Open the modal and display the clicked image
+        function openModal(imageSrc) {
+            modal.style.display = "block";
+            modalImage.src = imageSrc;
+        }
+
+        // Close the modal when the user clicks on <span> (x)
+        closeModal.onclick = function() {
+            modal.style.display = "none";
+        };
+
+        // Close the modal when the user clicks anywhere outside of the modal image
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
     </script>
 </body>
 </html>
+

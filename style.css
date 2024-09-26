@@ -52,37 +52,7 @@ header {
     margin: 20px auto;
 }
 
-/* Social Media Section */
-.social-media {
-    padding: 20px;
-    background-color: #fff;
-    margin: 20px auto;
-    border-radius: 10px;
-    width: 80%;
-}
-
-.social-media h2 {
-    color: #ff69b4;
-    font-size: 2rem;
-}
-
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 10px;
-    background-color: #ff69b4;
-    color: #fff;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: background-color 0.3s;
-}
-
-.btn:hover {
-    background-color: #ff4081;
-}
-
-/* Gallery Section */
+/* Scrollable Gallery */
 .gallery {
     padding: 20px;
     background-color: #fff;
@@ -96,24 +66,57 @@ header {
     font-size: 2rem;
 }
 
-.gallery-images {
+.scrollable-gallery {
     display: flex;
-    justify-content: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
     gap: 15px;
-    flex-wrap: wrap;
+    padding: 10px 0;
 }
 
-.gallery-images img {
-    max-width: 200px;
+.scrollable-gallery img {
+    max-width: 150px;
     border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
-/* Footer */
-footer {
-    background-color: #333;
+.scrollable-gallery img:hover {
+    transform: scale(1.1);
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+}
+
+.modal-content {
+    display: block;
+    margin: 15% auto;
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 25px;
     color: #fff;
-    padding: 10px;
-    font-size: 1rem;
-    margin-top: 20px;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover, .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
 }

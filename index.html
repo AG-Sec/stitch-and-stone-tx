@@ -16,26 +16,41 @@
 
     <section class="about">
         <img src="images/hat-design.png" alt="Custom Hat Design" class="hat-design">
-        <p>We design unique, custom hats that reflect your style. Our hats are made with high-quality materials and a touch of flair. Whether you're looking for a stylish trucker hat or something completely customized, we have you covered!</p>
-    </section>
-
-    <section class="social-media">
-        <h2>Connect with Us</h2>
-        <a href="https://instagram.com/stitchandstonetx" target="_blank" class="btn">Instagram</a>
-        <a href="mailto:stitchandstonetx@gmail.com" class="btn">Email Us</a>
+        <p>We design unique, custom hats that reflect your style...</p>
     </section>
 
     <section class="gallery">
         <h2>Gallery</h2>
-        <div class="gallery-images">
-            <img src="images/gallery-image1.jpeg" alt="Hat Design 1">
-            <img src="images/gallery-image2.jpeg" alt="Hat Design 2">
-            <div class="fb-post" data-href="https://www.facebook.com/profile.php?id=61565443256566&sk=photos" data-width="500"></div>
+        <div id="gallery-images" class="gallery-images">
+            <!-- JavaScript will populate images here -->
         </div>
     </section>
 
     <footer>
         <p>Powered by Heather & Ashlee McClung | Stitch and Stone TX</p>
     </footer>
+
+    <script>
+        // Array of image file names
+        const imageList = [
+            'gallery-image1.jpeg',
+            'gallery-image2.jpeg',
+            // Add more image file names here as needed
+        ];
+
+        // Get the gallery container
+        const galleryContainer = document.getElementById('gallery-images');
+
+        // Loop through the image list and create image elements
+        imageList.forEach(image => {
+            const imgElement = document.createElement('img');
+            imgElement.src = `images/${image}`;
+            imgElement.alt = "Gallery image";
+            imgElement.classList.add('gallery-image'); // Optional: for styling
+
+            // Append the image to the gallery container
+            galleryContainer.appendChild(imgElement);
+        });
+    </script>
 </body>
 </html>
